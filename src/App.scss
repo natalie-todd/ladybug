@@ -16,10 +16,11 @@ $bug-details: black;
   display: $display;
 }
 
-@mixin antennae-appearance($l-margin, $r-margin, $background-color) {
+@mixin antennae-appearance($l-margin, $r-margin, $background-color, $transform) {
   margin-left: $l-margin;
   margin-right: $r-margin;
   background-color: $background-color;
+  transform: $transform;
 }
 
 .antennae-dot-container {
@@ -33,7 +34,7 @@ $bug-details: black;
 
 .antennae-dot {
   @include size-display(2vh, 1.5vw, block);
-  @include antennae-appearance(1vh, 1vh, $bug-details);
+  @include antennae-appearance(1vh, 1vh, $bug-details, translateY(6%));
   border-radius: 50%;
 }
 
@@ -43,7 +44,7 @@ $bug-details: black;
 
 .antennae {
   @include size-display(7vh, 0.25vw, block);
-  @include antennae-appearance(2vh, 2vh, $bug-details);
+  @include antennae-appearance(2vh, 2vh, $bug-details, translateY(2%));
 }
 
 .bug-head {
@@ -54,7 +55,7 @@ $bug-details: black;
 
 .bug-body {
   @extend %center-center;
-  @include size-display(35vh, 20vw, flex);
+  @include size-display(35vh, 25vw, flex);
   background-color: rgb(235, 64, 52);
   border-radius: 50%;
   transform: translateY(-10%);
