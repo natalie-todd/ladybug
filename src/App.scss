@@ -1,3 +1,5 @@
+$primary-color: rgb(235, 64, 52);
+
 .App {
   display: flex;
   justify-content: center;
@@ -42,12 +44,13 @@
   background-color: black;
   border-radius: 50%;
   display: flex;
+
 }
 
 .bug-body {
   height: 400px;
   width: 400px;
-  background-color: #eb4034;
+  background-color: $primary-color;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -79,5 +82,3 @@
   border-radius: 50%;
   display: flex;
 }
-
-/*# sourceMappingURL=App.css.map */
