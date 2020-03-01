@@ -1,74 +1,72 @@
-$primary-color: rgb(235, 64, 52);
+$bug-details: black;
 
-.App {
-  display: flex;
+%center-center {
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  height: 100vh;
-  width: 100vw;
+}
+
+%antennae {
+  display: flex;
+  flex-direction: row;
+}
+
+@mixin size-display($height, $width, $display) {
+  height: $height;
+  width: $width;
+  display: $display;
+}
+
+@mixin antennae-appearance($l-margin, $r-margin, $background-color) {
+  margin-left: $l-margin;
+  margin-right: $r-margin;
+  background-color: $background-color;
 }
 
 .antennae-dot-container {
-  display: flex;
-  flex-direction: row;
+  @extend %antennae;
+}
+.App {
+  @extend %center-center;
+  @include size-display(100vh, 100vw, flex);
+  flex-direction: column;
 }
 
 .antennae-dot {
-  margin-left: 1vh;
-  margin-right: 1vh;
-  background-color: black;
-  display: block;
+  @include size-display(2vh, 1.5vw, block);
+  @include antennae-appearance(1vh, 1vh, $bug-details);
   border-radius: 50%;
-  height: 2vh;
-  width: 1.5vw;
 }
 
 .antennae-container {
-  display: flex;
-  flex-direction: row;
+  @extend %antennae;
 }
 
 .antennae {
-  margin-left: 2vh;
-  margin-right: 2vh;
-  height: 7vh;
-  width: 0.5vw;
-  background-color: black;
-  display: block;
+  @include size-display(7vh, 0.25vw, block);
+  @include antennae-appearance(2vh, 2vh, $bug-details);
 }
 
 .bug-head {
-  height: 100px;
-  width: 150px;
-  background-color: black;
+  @include size-display(9vh, 10vw, flex);
   border-radius: 50%;
-  display: flex;
-
+  background-color: $bug-details;
 }
 
 .bug-body {
-  height: 400px;
-  width: 400px;
-  background-color: $primary-color;
+  @extend %center-center;
+  @include size-display(35vh, 20vw, flex);
+  background-color: rgb(235, 64, 52);
   border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   transform: translateY(-10%);
 }
 
 .vertical-line {
-  height: 100%;
-  width: 1vh;
-  background: black;
-  display: block;
+  @include size-display(100%, 0.5vw, block);
+  background-color: $bug-details;
 }
 
 .side {
-  height: 300px;
-  width: 10vw;
-  display: flex;
+  @include size-display(25vh, 10vw, flex);
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
@@ -76,9 +74,7 @@ $primary-color: rgb(235, 64, 52);
 }
 
 .spot {
-  height: 50px;
-  width: 50px;
-  background-color: black;
+  @include size-display(3.5vh, 2.5vw, flex);
   border-radius: 50%;
-  display: flex;
+  background-color: $bug-details;
 }
