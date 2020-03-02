@@ -2,10 +2,7 @@ import React from 'react';
 import './App.css';
 
 const getBodyParts = (classNamed, num) => {
-    const arr = [];
-    for (let i = 0; i < num; i++) {
-        arr.push(<div key={i.toString()} className={classNamed}/>)
-    }
+    const arr = [...Array(num)].map((_, i) => <div key={i.toString()} className={classNamed}/>);
     return <span className={`${classNamed}-container`}>
         {arr}
         </span>
