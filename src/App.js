@@ -1,25 +1,26 @@
 import React from 'react';
 import './App.css';
 
+const getBodyParts = (classNamed, num) => {
+    const arr = [];
+    for (let i = 0; i < num; i++) {
+        arr.push(<div className={classNamed}/>)
+    }
+    // eslint-disable-next-line no-useless-concat
+    return <span className={`${classNamed}` + "-container"}>
+        {arr}
+        </span>
+};
+
 function App() {
     return (
         <div className="App">
-            <span className="antennae-dot-container">
-                <div className="antennae-dot"/>
-                <div className="antennae-dot"/>
-            </span>
-            <span className="antennae-container">
-                <div className="antennae"/>
-                <div className="antennae"/>
-            </span>
+            {getBodyParts("antennae-dot", 2)}
+                {getBodyParts("antennae", 2)}
             <span className="bug-head"/>
             <div className="body-space">
-                <span className="leg-space">
-                    <div className="left-leg"/>
-                    <div className="left-leg"/>
-                    <div className="left-leg"/>
-                </span>
-            <span className="bug-body">
+                    {getBodyParts("left-leg", 3)}
+                <span className="bug-body">
               <div className="side">
                   <span className="spot"/>
                   <span className="spot"/>
@@ -32,12 +33,8 @@ function App() {
                   <span className="spot"/>
               </div>
             </span>
-                <span className="leg-space">
-                    <div className="right-leg"/>
-                    <div className="right-leg"/>
-                    <div className="right-leg"/>
-                </span>
-          </div>
+                    {getBodyParts("right-leg", 3)}
+            </div>
         </div>
     );
 }
