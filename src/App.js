@@ -4,10 +4,9 @@ import './App.css';
 const getBodyParts = (classNamed, num) => {
     const arr = [];
     for (let i = 0; i < num; i++) {
-        arr.push(<div className={classNamed}/>)
+        arr.push(<div key={i.toString()} className={classNamed}/>)
     }
-    // eslint-disable-next-line no-useless-concat
-    return <span className={`${classNamed}` + "-container"}>
+    return <span className={`${classNamed}-container`}>
         {arr}
         </span>
 };

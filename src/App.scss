@@ -1,4 +1,6 @@
 $bug-details: black;
+$max-gradient: linear-gradient(to bottom left, #404040 0%, #000000 100%);
+$lesser-gradient: linear-gradient(to bottom left, #808080 0%, #000000 100%);
 
 %center-center {
   justify-content: center;
@@ -23,6 +25,11 @@ $bug-details: black;
   transform: $transform;
 }
 
+@mixin transform-border($transform, $border-radius) {
+  transform: $transform;
+  border-radius: $border-radius;
+}
+
 .antennae-dot-container {
   @extend %antennae;
 }
@@ -34,7 +41,7 @@ $bug-details: black;
 
 .antennae-dot {
   @include size-display(2vh, 1.5vw, block);
-  @include antennae-appearance(1vh, 1vh, linear-gradient(to bottom left, #404040 0%, #000000 100%), translateY(6%));
+  @include antennae-appearance(1vh, 1vh, $max-gradient, translateY(6%));
   border-radius: 50%;
 }
 
@@ -43,24 +50,23 @@ $bug-details: black;
 }
 
 .antennae {
-  @include size-display(7vh, 0.25vw, block);
+  @include size-display(6vh, 0.25vw, block);
   @include antennae-appearance(2vh, 2vh, $bug-details, translateY(2%));
 }
 
 .bug-head {
   @include size-display(9vh, 10vw, flex);
   border-radius: 50%;
-  background: linear-gradient(to bottom left, #808080 0%, #000000 100%);
+  background: $lesser-gradient;
 }
 
 .body-space {
-  display: flex;
-  flex-direction: row;
+  @extend %antennae;
   align-items: center;
   align-content: space-around;
 }
 
-.leg-space {
+.left-leg-container, .right-leg-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -70,25 +76,22 @@ $bug-details: black;
 
 .left-leg {
   @include size-display(1vh, 2.5vw, block);
+  @include transform-border(translateX(60%), 50%);
   background-color: $bug-details;
-  transform: translateX(60%);
-  border-radius: 50%;
 }
 
 .right-leg {
   @include size-display(1vh, 2.5vw, block);
-  background:linear-gradient(to bottom left, #808080 0%, #000000 100%);
-  transform: translateX(-60%);
+  @include transform-border(translateX(-60%), 50%);
+  background: $lesser-gradient;
   z-index: 0;
-  border-radius: 50%;
 }
 
 .bug-body {
   @extend %center-center;
   @include size-display(35vh, 25vw, flex);
+  @include transform-border(translateY(-10%), 50%);
   background: linear-gradient(to bottom left, #ff0000 0%, #800000 100%);
-  border-radius: 50%;
-  transform: translateY(-10%);
   z-index: 1;
 }
 
@@ -108,5 +111,5 @@ $bug-details: black;
 .spot {
   @include size-display(3.5vh, 2.5vw, flex);
   border-radius: 50%;
-  background: linear-gradient(to bottom left, #404040 0%, #000000 100%);
+  background: $max-gradient;
 }
