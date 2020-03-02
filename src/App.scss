@@ -19,7 +19,7 @@ $bug-details: black;
 @mixin antennae-appearance($l-margin, $r-margin, $background-color, $transform) {
   margin-left: $l-margin;
   margin-right: $r-margin;
-  background-color: $background-color;
+  background: $background-color;
   transform: $transform;
 }
 
@@ -34,7 +34,7 @@ $bug-details: black;
 
 .antennae-dot {
   @include size-display(2vh, 1.5vw, block);
-  @include antennae-appearance(1vh, 1vh, $bug-details, translateY(6%));
+  @include antennae-appearance(1vh, 1vh, linear-gradient(to bottom left, #404040 0%, #000000 100%), translateY(6%));
   border-radius: 50%;
 }
 
@@ -50,7 +50,7 @@ $bug-details: black;
 .bug-head {
   @include size-display(9vh, 10vw, flex);
   border-radius: 50%;
-  background-color: $bug-details;
+  background: linear-gradient(to bottom left, #808080 0%, #000000 100%);
 }
 
 .body-space {
@@ -69,29 +69,31 @@ $bug-details: black;
 }
 
 .left-leg {
-  @include size-display(0.5vh, 3.5vw, block);
+  @include size-display(1vh, 2.5vw, block);
   background-color: $bug-details;
-  transform: translateX(40%);
+  transform: translateX(60%);
+  border-radius: 50%;
 }
 
 .right-leg {
-  @include size-display(0.5vh, 3.5vw, block);
-  background-color: $bug-details;
-  transform: translateX(-40%);
+  @include size-display(1vh, 2.5vw, block);
+  background:linear-gradient(to bottom left, #808080 0%, #000000 100%);
+  transform: translateX(-60%);
   z-index: 0;
+  border-radius: 50%;
 }
 
 .bug-body {
   @extend %center-center;
   @include size-display(35vh, 25vw, flex);
-  background-color: rgb(235, 64, 52);
+  background: linear-gradient(to bottom left, #ff0000 0%, #800000 100%);
   border-radius: 50%;
   transform: translateY(-10%);
   z-index: 1;
 }
 
 .vertical-line {
-  @include size-display(100%, 0.5vw, block);
+  @include size-display(100%, 0.25vw, block);
   background-color: $bug-details;
 }
 
@@ -106,5 +108,5 @@ $bug-details: black;
 .spot {
   @include size-display(3.5vh, 2.5vw, flex);
   border-radius: 50%;
-  background-color: $bug-details;
+  background: linear-gradient(to bottom left, #404040 0%, #000000 100%);
 }
