@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 
 const getBodyParts = (classNamed, num) => {
@@ -9,27 +9,20 @@ const getBodyParts = (classNamed, num) => {
 };
 
 function App() {
+    const [total, setTotal] = useState(6);
     return (
         <div className="App">
             {getBodyParts("antennae-dot", 2)}
-                {getBodyParts("antennae", 2)}
+            {getBodyParts("antennae", 2)}
             <span className="bug-head"/>
-            <div className="body-space">
-                    {getBodyParts("left-leg", 3)}
+            <div className="body-space" onClick={() => setTotal(Math.floor((Math.random() * 6) + 1))}>
+                {getBodyParts("left-leg", 3)}
                 <span className="bug-body">
-              <div className="side">
-                  <span className="spot"/>
-                  <span className="spot"/>
-                  <span className="spot"/>
-              </div>
-              <div className="vertical-line"/>
-              <div className="side">
-                  <span className="spot"/>
-                  <span className="spot"/>
-                  <span className="spot"/>
-              </div>
+                {getBodyParts("spot", total <= 3 ? total : 3)}
+                    <div className="vertical-line"/>
+                    {getBodyParts("spot", total > 3 ? total -3 : 0)}
             </span>
-                    {getBodyParts("right-leg", 3)}
+                {getBodyParts("right-leg", 3)}
             </div>
         </div>
     );

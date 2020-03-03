@@ -98,9 +98,10 @@ $lesser-gradient: linear-gradient(to bottom left, #808080 0%, #000000 100%);
 .vertical-line {
   @include size-display(100%, 0.25vw, block);
   background-color: $bug-details;
+  z-index: 2;
 }
 
-.side {
+.spot-container {
   @include size-display(25vh, 10vw, flex);
   flex-direction: column;
   justify-content: space-around;
