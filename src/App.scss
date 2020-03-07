@@ -35,11 +35,12 @@ $lesser-gradient: linear-gradient(to bottom left, #808080 0%, #000000 100%);
 }
 
 h1 {
+  font-size: 60px;
   position: absolute;
   left: 100px;
   top: 150px;
-  text-shadow: -2px 0 $bug-details, 0 2px $bug-details, 2px 0 $bug-details, 0 -2px $bug-details;
-  color: white;
+  text-shadow: 3px 3px grey;
+  color: $bug-details;
 }
 
 .App {
