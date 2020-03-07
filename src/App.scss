@@ -33,6 +33,15 @@ $lesser-gradient: linear-gradient(to bottom left, #808080 0%, #000000 100%);
 .antennae-dot-container {
   @extend %antennae;
 }
+
+h1 {
+  position: absolute;
+  left: 100px;
+  top: 150px;
+  text-shadow: -2px 0 $bug-details, 0 2px $bug-details, 2px 0 $bug-details, 0 -2px $bug-details;
+  color: white;
+}
+
 .App {
   @extend %center-center;
   @include size-display(100vh, 100vw, flex);
