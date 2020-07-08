@@ -91,6 +91,7 @@
   width: 0.25vw;
   display: block;
   background-color: black;
+  
 }
 
 .side {
@@ -104,11 +105,19 @@
 }
 
 .spot {
-  height: 3.5vh;
-  width: 2.5vw;
+  height: 4.5vh;
+  width: 3.5vw;
   display: flex;
   border-radius: 50%;
   background: linear-gradient(to bottom left, #404040 0%, #000000 100%);
+  margin: .5rem;
+}
+
+/* if spot container is empty add width, height, margin to keep vertical line in place */
+span.spot-container:empty {
+  margin: .5rem;
+  height: 4.5vh;
+  width: 3.5vw;
 }
 
 /*# sourceMappingURL=App.css.map */
